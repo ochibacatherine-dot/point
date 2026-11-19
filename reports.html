@@ -49,13 +49,9 @@ th { background: #f5f8fa; color: #314253; white-space: nowrap; }
 </head>
 <body>
 <header class="topbar"><a class="brand" href="/dashboard">PointsTrack</a><nav><a href="/dashboard">Dashboard</a><a href="/members">Members</a><a href="/purchase">Record Purchase</a><a href="/disputes">Disputes</a><a href="/activity">Activity Log</a><a class="active" href="/reports">Reports</a><a href="/logout">Logout</a></nav></header>
-<main class="container"><h1>Reports</h1><section class="stats"><article class="stat"><span>Rewarded Purchases</span><strong>{{ total_purchases }}</strong></article><article class="stat"><span>Sales Value (KES)</span><strong>{{ total_sales }}</strong></article><article class="stat"><span>Points Issued</span><strong>{{ total_points }}</strong></article><article class="stat"><span>Outstanding Points</span><strong>{{ outstanding }}</strong></article></section>
+<main class="container"><h1>Reports</h1><section class="stats"><article class="stat"><span>Rewarded Purchases</span><strong></strong></article><article class="stat"><span>Sales Value (KES)</span><strong></strong></article><article class="stat"><span>Points Issued</span><strong></strong></article><article class="stat"><span>Outstanding Points</span><strong></strong></article></section>
 <section class="panel"><h2>Points Awarded by Cashier</h2><div class="table-wrap"><table><thead><tr><th>Cashier</th><th>Points Awarded</th></tr></thead><tbody>
-{% for row in by_cashier %}
-<tr><td>{{ row.username }}</td><td>{{ row.points }}</td></tr>
-{% else %}
 <tr><td colspan="2">No purchases yet.</td></tr>
-{% endfor %}
 </tbody></table></div></section>
 <section class="panel"><h2>Balance Reconciliation</h2><p class="status-ok">Reconciliation complete: no balance mismatches found.</p></section></main>
 </body></html>
