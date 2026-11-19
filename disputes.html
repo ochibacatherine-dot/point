@@ -52,10 +52,6 @@ th { background: #f5f8fa; color: #314253; white-space: nowrap; }
 <main class="container"><h1>Dispute Management</h1>
 <section class="panel form-panel"><h2>Log Customer Complaint</h2><form action="/disputes" method="POST"><label for="card">Member Card Number</label><input id="card" name="member_id" placeholder="LC-0001" required><label for="complaint">Complaint</label><textarea id="complaint" name="issue" rows="4" placeholder="Describe the missing or incorrect points..." required></textarea><button type="submit">Log Dispute</button></form></section>
 <section class="panel"><h2>Dispute Register</h2><div class="table-wrap"><table><thead><tr><th>ID</th><th>Member</th><th>Complaint</th><th>Status</th><th>Manager Remarks</th></tr></thead><tbody>
-{% for d in disputes %}
-<tr><td>{{ d.id }}</td><td>{{ d.member_id }}</td><td>{{ d.issue }}</td><td>{% if d.status == 'Resolved' %}<span class="badge success">Resolved</span>{% else %}<span class="badge warning">{{ d.status }}</span>{% endif %}</td><td>{{ d.remarks }}</td></tr>
-{% else %}
 <tr><td colspan="5">No disputes yet.</td></tr>
-{% endfor %}
 </tbody></table></div></section>
 </main></body></html>
