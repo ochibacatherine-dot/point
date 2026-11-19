@@ -55,14 +55,7 @@ th { background: #f5f8fa; color: #314253; white-space: nowrap; }
   <main class="login-card">
     <h1>PointsTrack</h1>
     <p>Supermarket Loyalty Points Management System</p>
-    {% with messages = get_flashed_messages() %}
-      {% if messages %}
-        {% for msg in messages %}
-        <p class="error">{{ msg }}</p>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
-    <form action="/login" method="POST">
+    <form action="dashboard.html">
       <label for="username">Username</label>
       <input id="username" name="username" type="text" placeholder="Enter username" required>
       <label for="password">Password</label>
