@@ -51,9 +51,6 @@ th { background: #f5f8fa; color: #314253; white-space: nowrap; }
 <header class="topbar"><a class="brand" href="/dashboard">PointsTrack</a><nav><a href="/dashboard">Dashboard</a><a class="active" href="/members">Members</a><a href="/purchase">Record Purchase</a><a href="/disputes">Disputes</a><a href="/activity">Activity Log</a><a href="/reports">Reports</a><a href="/logout">Logout</a></nav></header>
 <main class="container">
 <h1>Members</h1>
-{% with messages = get_flashed_messages() %}
-  {% if messages %}{% for msg in messages %}<p class="status-ok">{{ msg }}</p>{% endfor %}{% endif %}
-{% endwith %}
 <div class="two-column">
 <section class="panel"><h2>Enrol New Member</h2><form action="/members" method="POST">
 <label for="name">Full Name</label><input id="name" name="name" required>
@@ -62,10 +59,6 @@ th { background: #f5f8fa; color: #314253; white-space: nowrap; }
 <section class="panel"><h2>Search Members</h2><form action="/members" method="GET" class="inline-form"><input name="q" value="{{ q or '' }}" placeholder="Name, card number or phone"><button type="submit">Search</button></form><p class="muted">Each member should have a unique phone number and card number.</p></section>
 </div>
 <section class="panel"><h2>Member List</h2><div class="table-wrap"><table><thead><tr><th>Card Number</th><th>Name</th><th>Phone</th><th>Points Balance</th><th>Enrolled</th><th>Action</th></tr></thead><tbody>
-{% for m in members %}
-<tr><td>{{ m.id }}</td><td>{{ m.name }}</td><td>{{ m.phone }}</td><td>{{ m.points }}</td><td>{{ m.created_at }}</td><td><a class="button small" href="/member-history?id={{ m.id }}">View History</a></td></tr>
-{% else %}
 <tr><td colspan="6">No members yet. Enrol one above.</td></tr>
-{% endfor %}
 </tbody></table></div></section>
 </main></body></html>
