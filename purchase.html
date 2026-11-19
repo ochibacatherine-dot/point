@@ -50,9 +50,6 @@ th { background: #f5f8fa; color: #314253; white-space: nowrap; }
 <body>
 <header class="topbar"><a class="brand" href="/dashboard">PointsTrack</a><nav><a href="/dashboard">Dashboard</a><a href="/members">Members</a><a class="active" href="/purchase">Record Purchase</a><a href="/disputes">Disputes</a><a href="/activity">Activity Log</a><a href="/reports">Reports</a><a href="/logout">Logout</a></nav></header>
 <main class="container"><h1>Record Purchase</h1><section class="panel form-panel"><p>Record a purchase to award loyalty points.</p>
-{% with messages = get_flashed_messages() %}
-  {% if messages %}{% for msg in messages %}<p class="status-ok">{{ msg }}</p>{% endfor %}{% endif %}
-{% endwith %}
 <form action="/purchase" method="POST">
 <label for="card">Member Card Number</label><input id="card" name="member_id" placeholder="LC-0001" required>
 <label for="receipt">Receipt Number</label><input id="receipt" name="receipt" placeholder="RC-100201" required>
