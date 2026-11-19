@@ -56,9 +56,26 @@ th { background: #f5f8fa; color: #314253; white-space: nowrap; }
 <label for="name">Full Name</label><input id="name" name="name" required>
 <label for="phone">Phone Number</label><input id="phone" name="phone" type="tel" required>
 <button type="submit">Enrol Member</button></form></section>
-<section class="panel"><h2>Search Members</h2><form action="/members" method="GET" class="inline-form"><input name="q" value="{{ q or '' }}" placeholder="Name, card number or phone"><button type="submit">Search</button></form><p class="muted">Each member should have a unique phone number and card number.</p></section>
+<section class="panel"><h2>Search Members</h2><form action="/members" method="GET" class="inline-form"><input name="q" >placeholder="Name, card number or phone"><button type="submit">Search</button></form><p class="muted">Each member should have a unique phone number and card number.</p></section>
 </div>
 <section class="panel"><h2>Member List</h2><div class="table-wrap"><table><thead><tr><th>Card Number</th><th>Name</th><th>Phone</th><th>Points Balance</th><th>Enrolled</th><th>Action</th></tr></thead><tbody>
 <tr><td colspan="6">No members yet. Enrol one above.</td></tr>
+    <script>
+function addMember(){
+  var name = document.getElementById('memberName').value;
+  var phone = document.getElementById('memberPhone').value;
+  if(!name || !phone){ alert('Please enter name and phone'); return; }
+  var list = document.body.innerHTML;
+  alert(name + ' enrolled! Phone: ' + phone);
+  // Add to Member List table
+  var tables = document.querySelectorAll('table');
+  var lastTable = tables[tables.length - 1];
+  var tbody = lastTable.querySelector('tbody') || lastTable;
+  var row = tbody.insertRow();
+  row.innerHTML = '<td>PT-001</td><td>'+name+'</td><td>'+phone+'</td><td>0</td><td>Today</td><td>Added</td>';
+  document.getElementById('memberName').value = '';
+  document.getElementById('memberPhone').value = '';
+}
+</script>
 </tbody></table></div></section>
 </main></body></html>
