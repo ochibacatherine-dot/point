@@ -65,13 +65,13 @@ th { background: #f5f8fa; color: #314253; white-space: nowrap; }
   </header>
   <main class="container">
     <h1>Dashboard</h1>
-    <p class="muted">Overview of the supermarket loyalty programme. Welcome, {{ username }}!</p>
+    <p class="muted">Overview of the supermarket loyalty programme. Welcome,Admin</p>
     <section class="stats">
-      <article class="stat"><span>Total Members</span><strong>{{ total_members }}</strong></article>
-      <article class="stat"><span>Rewarded Purchases</span><strong>{{ total_purchases }}</strong></article>
-      <article class="stat"><span>Points Issued</span><strong>{{ total_points }}</strong></article>
-      <article class="stat"><span>Points Redeemed</span><strong>{{ total_redeemed }}</strong></article>
-      <article class="stat"><span>Open Disputes</span><strong>{{ open_disputes }}</strong></article>
+      <article class="stat"><span>Total Members</span><strong>128</strong></article>
+      <article class="stat"><span>Rewarded Purchases</span><strong>342</strong></article>
+      <article class="stat"><span>Points Issued</span><strong>15400</strong></article>
+      <article class="stat"><span>Points Redeemed</span><strong>4200</strong></article>
+      <article class="stat"><span>Open Disputes</span><strong>3</strong></article>
       <article class="stat"><span>Balance Mismatches</span><strong>0</strong></article>
     </section>
     <section class="panel">
@@ -79,11 +79,7 @@ th { background: #f5f8fa; color: #314253; white-space: nowrap; }
       <div class="table-wrap"><table>
         <thead><tr><th>Date</th><th>User</th><th>Member</th><th>Action</th><th>Details</th></tr></thead>
         <tbody>
-          {% for log in logs %}
-          <tr><td>{{ log.date }}</td><td>{{ log.username }}</td><td>{{ log.member_id }}</td><td>{{ log.action }}</td><td>{{ log.details }}</td></tr>
-          {% else %}
           <tr><td colspan="5">No activity yet.</td></tr>
-          {% endfor %}
         </tbody>
       </table></div>
     </section>
