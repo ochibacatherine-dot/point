@@ -49,17 +49,10 @@ th { background: #f5f8fa; color: #314253; white-space: nowrap; }
 </head>
 <body>
 <header class="topbar"><a class="brand" href="/dashboard">PointsTrack</a><nav><a href="/dashboard">Dashboard</a><a href="/members">Members</a><a href="/purchase">Record Purchase</a><a href="/disputes">Disputes</a><a href="/activity">Activity Log</a><a href="/reports">Reports</a><a href="/logout">Logout</a></nav></header>
-<main class="container"><h1>{{ member.name }} <span class="badge">{{ member.id }}</span></h1>
-<div class="stats single"><article class="stat"><span>Current Points Balance</span><strong>{{ member.points }}</strong></article></div>
-{% with messages = get_flashed_messages() %}
-  {% if messages %}{% for msg in messages %}<p class="status-ok">{{ msg }}</p>{% endfor %}{% endif %}
-{% endwith %}
+<main class="container"><h1> <span class="badge"></span></h1>
+<div class="stats single"><article class="stat"><span>Current Points Balance</span><strong></strong></article></div>
 <section class="panel form-panel"><h2>Redeem Points</h2><form action="/redeem" method="POST"><input type="hidden" name="member_id" value="{{ member.id }}"><label for="points">Points to Redeem</label><input id="points" name="points" type="number" min="1" max="{{ member.points }}" required><button type="submit">Redeem Points</button></form><p class="muted">1 point = KES 1 discount. Redemption cannot exceed the available balance.</p></section>
 <section class="panel"><h2>Points History</h2><div class="table-wrap"><table><thead><tr><th>Date</th><th>Type</th><th>Points</th><th>Receipt</th><th>Note</th></tr></thead><tbody>
-{% for h in history %}
-<tr><td>{{ h.date }}</td><td>{{ h.type }}</td><td>{{ h.points }}</td><td>{{ h.receipt }}</td><td>{{ h.note }}</td></tr>
-{% else %}
 <tr><td colspan="5">No history yet for this member.</td></tr>
-{% endfor %}
 </tbody></table></div><a href="/members">← Back to members</a></section></main>
 </body></html>
