@@ -21,9 +21,6 @@ button:hover { background: #10523d; }
 <body>
 <main class="login-page"><div class="login-card">
 <h1>PointsTrack</h1><p>Create a new staff account.</p>
-{% with messages = get_flashed_messages() %}
-  {% if messages %}{% for msg in messages %}<p class="status-ok">{{ msg }}</p>{% endfor %}{% endif %}
-{% endwith %}
 <form action="/register" method="POST">
 <label>Username<input name="username" required></label>
 <label>Password<input name="password" type="password" required></label>
