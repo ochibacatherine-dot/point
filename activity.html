@@ -50,10 +50,6 @@ th { background: #f5f8fa; color: #314253; white-space: nowrap; }
 <body>
 <header class="topbar"><a class="brand" href="/dashboard">PointsTrack</a><nav><a href="/dashboard">Dashboard</a><a href="/members">Members</a><a href="/purchase">Record Purchase</a><a href="/disputes">Disputes</a><a class="active" href="/activity">Activity Log</a><a href="/reports">Reports</a><a href="/logout">Logout</a></nav></header>
 <main class="container"><h1>Activity Log</h1><p class="muted">A record of actions performed in the system.</p><section class="panel"><div class="table-wrap"><table><thead><tr><th>Date and Time</th><th>User</th><th>Member</th><th>Action</th><th>Details</th></tr></thead><tbody>
-{% for log in logs %}
-<tr><td>{{ log.date }}</td><td>{{ log.username }}</td><td>{{ log.member_id }}</td><td>{{ log.action }}</td><td>{{ log.details }}</td></tr>
-{% else %}
 <tr><td colspan="5">No activity yet.</td></tr>
-{% endfor %}
 </tbody></table></div></section></main>
 </body></html>
